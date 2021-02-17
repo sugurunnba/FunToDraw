@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <tr>
+          <h3 class="text-center">お知らせ一覧</h3>
+        </tr>
+        <tr>
+          <td></td>
+          <td>タイトル</td>
+          <td>更新日</td>
+        </tr>
+<br>
+        <% @news.each do |new| %>
+        <tr>
+          <th>
+            <h1 class="text-center" style="line-height: 30px;">
+              <i class="fa fa-coffee"></i><br>
+              <p>CafeWhere</p>
+            </h1>
+          </th>
+          <td>
+            <%= link_to user_new_path(new) do %>
+              <%= new.title %>
+            <% end %>
+          </td>
+          <td>
+            <%= new.created_at.strftime("%Y年%m月%d日") %>更新
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

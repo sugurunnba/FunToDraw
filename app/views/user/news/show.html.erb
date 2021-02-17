@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", user_news_path %>
+          </tr>
+          <tr>
+            <th>お知らせタイトル</th>
+            <td><%= @new.title %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <td><%= attachment_image_tag @new, :news_image, :fill, 400, 400 %></td>
+          </tr>
+          <tr>
+            <th>お知らせ本文</th>
+            <td><%= simple_format(@new.text) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
