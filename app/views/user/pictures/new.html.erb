@@ -1,1 +1,28 @@
-<h3>イラスト投稿</h3>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+
+      <%= render 'layouts/error_messages', messages: @picture %>
+
+      <div class="card-body">
+        <h3 class="mt-1 mb-3">イラストツイート</h3>
+        <%= form_with model: @picture, url: user_pictures_path, local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :title, "イラストタイトル", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, "イラスト紹介", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_area :message, autocomplete: "message", :class => "form-control", :style => "height: 200px;" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
