@@ -1,1 +1,49 @@
-<h3>管理者ページのユーザー詳細ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+			<table border="1">
+			  <thead>
+			    <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+			    <h3 class="text-center"><%= @user.name %>さんのユーザー詳細画面</h3>
+			  </thead>
+<br>
+        <tbody>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_users_path %>
+          </tr>
+          <tr>
+            <th>ユーザーID</th>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <th>ユーザー写真</th>
+            <td><%= attachment_image_tag @user, :user_image, :fill, 200, 200 %></td>
+          </tr>
+          <tr>
+            <th>ニックネーム</th>
+            <td>
+              <%= @user.name %>
+              <% if @user.user_status == true %>
+                退会済
+              <% else %>
+                有効会員</span>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "編集する", edit_admin_user_path(@user), :class => "btn btn-primary" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
