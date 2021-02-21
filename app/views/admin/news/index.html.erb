@@ -1,2 +1,36 @@
-<h1>Admin::News#index</h1>
-<p>Find me in app/views/admin/news/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+          </tr>
+          <tr>
+            <h3 class="text-center">お知らせ一覧</h3>
+          </tr>
+<br>
+          <tr>
+            <%= link_to "お知らせ登録", new_admin_news_path %>
+          </tr>
+          <tr>
+            <td>更新日</td>
+            <td>タイトル</td>
+          </tr>
+        </thead>
+        <% @news.each do |new| %>
+        <tbody>
+          <tr>
+            <td><%= new.created_at.strftime("%Y年%m月%d日") %>更新</td>
+            <td>
+              <%= link_to admin_news_path(new) do %>
+                <%= new.title %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

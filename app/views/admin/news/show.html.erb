@@ -1,2 +1,37 @@
-<h1>Admin::News#show</h1>
-<p>Find me in app/views/admin/news/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_news_index_path %>
+          </tr>
+          <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
+          <tr>
+            <th>お知らせタイトル</th>
+            <td><%= @new.title %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <td><%= attachment_image_tag @new, :news_image, :fill, 400, 400 %></td>
+          </tr>
+          <tr>
+            <th>お知らせ本文</th>
+            <td><%= simple_format(@new.message) %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= link_to "編集する", edit_admin_news_path(@new), :class => "btn btn-primary" %>
+              <%= link_to "削除する", admin_news_path(@new), method: :delete, :class => "btn btn-primary" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
