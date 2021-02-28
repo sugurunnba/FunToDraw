@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # 以下、adminのルート==============
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   end
 
 
-# ======
+# 以下、userのルート==============
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
 
   root to: 'user/users#top'
 
-  namespace :user do
+  scope module: :user do
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'about'
@@ -39,15 +40,17 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :user do
+  scope module: :user do
     resources :news, only: [:show, :index]
   end
 
-  namespace :user do
-    resources :questions
+  scope module: :user do
+    resources :questions do
+      resources :answers, only: [:new, :create, :show, :edit, :update, :destroy]
+    end
   end
 
-  namespace :user do
+  scope module: :user do
     resources :pictures
   end
 

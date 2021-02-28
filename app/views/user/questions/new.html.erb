@@ -6,7 +6,7 @@
 
       <div class="card-body">
         <h3 class="mt-1 mb-3">質問投稿</h3>
-        <%= form_with model: @question, url: user_questions_path, local:true do |f| %>
+        <%= form_with model: @question, url: questions_path, local:true do |f| %>
 
         <div class="form-group">
           <%= f.label :title, "質問タイトル", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
