@@ -5,7 +5,7 @@
       <%= render 'layouts/error_messages', messages: @answer %>
 
       <div class="card-body">
-        <h3 class="mt-1 mb-3">回答する</h3>
+        <h3 class="mt-1 mb-3">回答をする</h3>
         <!--pathではエラーになったので、urlを直接入力している-->
         <%= form_with model: @answer, url: question_answer_path(@answer.question, @answer), local:true do |f| %>
 
