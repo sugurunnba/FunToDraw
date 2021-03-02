@@ -1,2 +1,29 @@
-<h1>User::Answers#edit</h1>
-<p>Find me in app/views/user/answers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+
+      <%= render 'layouts/error_messages', messages: @answer %>
+
+      <div class="card-body">
+        <h3 class="mt-1 mb-3">回答する</h3>
+        <!--pathではエラーになったので、urlを直接入力している-->
+        <%= form_with model: @answer, url: question_answer_path(@answer.question, @answer), local:true do |f| %>
+
+        <div class="form-group">
+          <%= f.label :answer_image, "写真を追加する", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.attachment_field :answer_image, autocomplete: "message" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, "回答内容", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
+          <%= f.text_area :message, autocomplete: "message", :class => "form-control", :style => "height: 200px;" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

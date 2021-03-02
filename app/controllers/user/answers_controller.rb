@@ -5,11 +5,14 @@ class User::AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    question = Question.find(params[:question_id])
+    @answer.question_id = question.id
     @answer.save!
     redirect_to questions_path(@question)
   end
 
   def show
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
   end
 
@@ -21,14 +24,14 @@ class User::AnswersController < ApplicationController
     @question = Question.find(params[:id])
     @answer = Answer.find(params[:id])
     @answer.update(answer_params)
-    redirect_to user_questions_path(@question)
+    redirect_to question_path(@question)
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.destroy
-    redirect_to user_questions_path(@question)
+    redirect_to questions_path(@question)
   end
 
   private

@@ -57,9 +57,9 @@
                 <%= link_to question_answer_path(answer) do %>
                   <%= answer.message %>
                 <% end %>
-                <% if answer.user == current_user %>
+                <% if @question.user = current_user %>
                   <%= link_to "編集する", edit_question_answer_path(answer) %>
-                  <%= link_to "削除する", question_answer_path(answer.user, answer), method: :delete %>
+                  <%= link_to "削除する", question_answer_path(answer.question, answer), method: :delete %>
                 <% end %>
               </td>
             </tr>

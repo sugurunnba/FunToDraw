@@ -6,7 +6,7 @@ class User::PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.save
-    redirect_to user_pictures_path
+    redirect_to pictures_path
   end
 
   def index
@@ -24,13 +24,13 @@ class User::PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     @picture.update(picture_params)
-    redirect_to user_pictures_path
+    redirect_to pictures_path
   end
 
   def destroy
     @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to user_pictures_path
+    redirect_to pictures_path
   end
 
   private
