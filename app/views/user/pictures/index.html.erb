@@ -11,7 +11,7 @@
           </tr>
 <br>
           <tr>
-            <%= link_to "イラストツイートする", new_user_picture_path %>
+            <%= link_to "イラストツイートする", new_picture_path %>
           </tr>
           <tr>
             <td>更新日</td>
@@ -23,7 +23,7 @@
           <tr>
             <td><%= picture.created_at.strftime("%Y年%m月%d日") %>更新</td>
             <td>
-              <%= link_to user_picture_path(picture) do %>
+              <%= link_to picture_path(picture) do %>
                 <%= picture.title %>
               <% end %>
             </td>

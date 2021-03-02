@@ -4,7 +4,7 @@
       <table border="1">
         <thead>
           <tr>
-            <i class="fa fa-history"></i><%= link_to "戻る", user_pictures_path %>
+            <i class="fa fa-history"></i><%= link_to "戻る", pictures_path %>
           </tr>
           <tr>
             <h5 class="message-center" style="color: limegreen"><%= flash[:notice] %></h5>
@@ -26,8 +26,8 @@
           <tr>
             <th></th>
             <td>
-              <%= link_to "編集する", edit_user_picture_path(@picture), :class => "btn btn-primary" %>
-              <%= link_to "削除する", user_picture_path(@picture), method: :delete, :class => "btn btn-primary" %>
+              <%= link_to "編集する", edit_picture_path(@picture), :class => "btn btn-primary" %>
+              <%= link_to "削除する", picture_path(@picture), method: :delete, :class => "btn btn-primary" %>
             </td>
           </tr>
         </tbody>

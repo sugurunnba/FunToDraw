@@ -4,7 +4,7 @@
       <table border="1">
         <thead>
           <tr>
-            <i class="fa fa-history"></i><%= link_to "戻る", user_news_path %>
+            <i class="fa fa-history"></i><%= link_to "戻る", news_index_path %>
           </tr>
           <tr>
             <th>お知らせタイトル</th>
@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <th>お知らせ本文</th>
-            <td><%= simple_format(@new.text) %></td>
+            <td><%= simple_format(@new.message) %></td>
           </tr>
         </tbody>
       </table>

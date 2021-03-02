@@ -32,11 +32,11 @@
 			  <tr>
 					<td>
 						<% if @user == current_user %>
-							<%= link_to "ユーザー情報を編集する", edit_user_user_path(@user), :class => "btn btn-primary" %>
+							<%= link_to "ユーザー情報を編集する", edit_user_path(@user), :class => "btn btn-primary" %>
 						<% end %>
 					</td>
 					<td>
-			  		<%= link_to "お知らせ", user_news_index_path, :class => "btn btn-primary" %>
+			  		<%= link_to "お知らせ", news_index_path, :class => "btn btn-primary" %>
 			  	</td>
 			  </tr>
 			  <tr>

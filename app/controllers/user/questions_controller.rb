@@ -5,8 +5,9 @@ class User::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.save
-    redirect_to user_questions_path
+    @question.user_id = current_user.id
+    @question.save!
+    redirect_to questions_path
   end
 
   def show
@@ -24,13 +25,13 @@ class User::QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
-    redirect_to user_questions_path
+    redirect_to questions_path
   end
 
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to user_questions_path
+    redirect_to questions_path
   end
 
   private

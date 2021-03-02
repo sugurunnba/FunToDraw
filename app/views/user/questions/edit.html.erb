@@ -3,14 +3,14 @@
     <div class="card col-sm-6 mx-auto mt-5">
 
       <div>
-        <i class="fa fa-history"></i><%= link_to "戻る", user_questions_path(@question) %>
+        <i class="fa fa-history"></i><%= link_to "戻る", questions_path(@question) %>
       </div>
 
       <%= render 'layouts/error_messages', messages: @question %>
 
       <div class="card-body">
         <h3 class="mt-1 mb-3">お知らせ編集</h3>
-        <%= form_with model: @question, url: user_question_path(@question), local:true do |f| %>
+        <%= form_with model: @question, url: question_path(@question), local:true do |f| %>
 
         <!--<div class="form-group">-->
         <!--  <!%= f.label :question_image, "お知らせ写真(上書きします)", :class => "form-label" %>-->
