@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <table>
+      <% if @pictures.exists? %>
+        <% @pictures.each do |picture| %>
+        <tr>
+          <td><%= link_to "詳細画面へ移動", picture_path(picture) %></td>
+          <td><%= picture.title %></td>
+        </tr>
+        <% end %>
+      <% elsif @questions.exists? %>
+        <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to "詳細画面へ移動", question_path(question) %></td>
+          <td><%= question.title %></td>
+        </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>一致するものはございませんでした</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
