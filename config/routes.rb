@@ -54,4 +54,8 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  scope module: :user do
+    resources :searches, only: [:new, :index]
+  end
+
 end

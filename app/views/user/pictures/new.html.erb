@@ -14,8 +14,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :title, "複数投稿したいので、それ用のモデルを後で追加する必要がある", :class => "form-label" %>&nbsp;<span class="label label-danger">必須</span>
-          <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
+          <%= f.attachment_field :picture_images_picture_images, multiple: true %>
         </div>
 
         <div class="form-group">

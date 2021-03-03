@@ -1,6 +1,7 @@
 class User::PicturesController < ApplicationController
   def new
     @picture = Picture.new
+    @picture.picture_images.new
   end
 
   def create
@@ -35,6 +36,6 @@ class User::PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:title, :message)
+    params.require(:picture).permit(:title, :message, picture_images_picture_images: [])
   end
 end

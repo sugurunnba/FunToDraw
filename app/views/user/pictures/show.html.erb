@@ -17,8 +17,15 @@
         <tbody>
           <tr>
             <th>イラスト写真</th>
-            <td>複数のイラストを投稿できるようにするためのモデルを作成してからイラストを表示できるようにするため、現状はテキストを入れている</td>
-          </tr>
+            <td>
+            <% if @picture.picture_images.present? %>
+              <% @picture.picture_images.each do |picture| %>
+                <%= attachment_image_tag picture, :picture_image, :fill, 200, 200 %>
+              <% end %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "200x200" %>
+            <% end %>
+            </td>
           <tr>
             <th>お知らせ本文</th>
             <td><%= simple_format(@picture.message) %></td>

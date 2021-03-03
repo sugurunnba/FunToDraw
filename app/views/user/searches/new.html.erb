@@ -1,0 +1,9 @@
+<%= form_with url: searches_path, method: :get, local: true do |f| %>
+<table>
+  <tr>
+    <td><%= f.text_field :search_picture, :placeholder => "イラストを検索する" %></td>
+    <td><%= f.text_field :search_question, :placeholder => "質問を検索する" %></td>
+    <td><%= f.submit "検索する" %></td>
+  </tr>
+</table>
+<% end %>
