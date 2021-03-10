@@ -31,7 +31,7 @@ services:
       - 80:80
 
 volumes:
-  # mysql-data:
+  mysql-data:
   public-data:
   tmp-data:
   log-data:
