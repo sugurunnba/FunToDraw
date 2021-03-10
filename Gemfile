@@ -77,3 +77,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+# Docker導入のため記述
+# gem 'mysql2'
