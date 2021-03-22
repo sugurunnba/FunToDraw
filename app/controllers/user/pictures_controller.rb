@@ -6,6 +6,7 @@ class User::PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
     @picture.save
     redirect_to pictures_path
   end
