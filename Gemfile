@@ -71,3 +71,12 @@ gem 'pry-byebug'
 # bootstrapの設定
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+
+# 本番環境の構築
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
+# Docker導入のため記述
+# gem 'mysql2'
