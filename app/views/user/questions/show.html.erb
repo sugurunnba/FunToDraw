@@ -10,6 +10,10 @@
             <h5 class="message-center" style="color: limegreen"><%= flash[:notice] %></h5>
           </tr>
           <tr>
+            <th>投稿者</th>
+            <td><%= @question.user.name %></td>
+          </tr>
+          <tr>
             <th>お知らせタイトル</th>
             <td><%= @question.title %></td>
           </tr>
