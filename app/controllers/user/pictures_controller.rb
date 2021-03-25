@@ -37,6 +37,6 @@ class User::PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:title, :message, picture_images_picture_images: [])
+    params.require(:picture).permit(:title, :message)
   end
 end

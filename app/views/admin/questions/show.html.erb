@@ -1,2 +1,70 @@
-<h1>Admin::Questions#show</h1>
-<p>Find me in app/views/admin/questions/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_questions_path %>
+          </tr>
+          <tr>
+            <h5 class="message-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
+          <tr>
+            <th>投稿者</th>
+            <td><%= @question.user.name %></td>
+          </tr>
+          <tr>
+            <th>お知らせタイトル</th>
+            <td><%= @question.title %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>イラスト写真</th>
+            <td>イラスト写真</td>
+          </tr>
+          <tr>
+            <th>お知らせ本文</th>
+            <td><%= simple_format(@question.message) %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= link_to "編集する", edit_admin_question_path(@question), :class => "btn btn-primary" %>
+              <%= link_to "削除する", admin_question_path(@question), method: :delete, :class => "btn btn-primary" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <thead>
+          <tr>
+            <h3 class="text-center">クチコミ</h3>
+          </tr>
+        </thead>
+        <% if @question.answers.empty? %>
+          <tbody>
+            <tr>
+              <td>回答はありません</td>
+            </tr>
+          </tbody>
+        <% else %>
+          <% @question.answers.each do |answer| %>
+          <tbody>
+            <tr>
+              <th>
+              <td>
+                <%= link_to admin_question_answer_path(answer) do %>
+                  <%= answer.message %>
+                <% end %>
+                <%= link_to "削除する", admin_question_answer_path(answer.question, answer), method: :delete %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

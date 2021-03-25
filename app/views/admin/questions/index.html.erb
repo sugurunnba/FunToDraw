@@ -1,1 +1,36 @@
-<h3>管理者の質問一覧ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <h5 class="text-center" style="color: limegreen"><%= flash[:success] %></h5>
+          </tr>
+          <tr>
+            <h3 class="text-center">質問一覧</h3>
+          </tr>
+<br>
+          <tr>
+            <%= link_to "質問する", new_admin_question_path %>
+          </tr>
+          <tr>
+            <td>更新日</td>
+            <td>質問タイトル</td>
+          </tr>
+        </thead>
+        <% @questions.each do |question| %>
+        <tbody>
+          <tr>
+            <td><%= question.created_at.strftime("%Y年%m月%d日") %>更新</td>
+            <td>
+              <%= link_to admin_question_path(question) do %>
+                <%= question.title %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
