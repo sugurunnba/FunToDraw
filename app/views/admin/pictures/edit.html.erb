@@ -1,2 +1,38 @@
-<h1>Admin::Pictures#edit</h1>
-<p>Find me in app/views/admin/pictures/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-sm-6 mx-auto mt-5">
+
+      <div>
+        <i class="fa fa-history"></i><%= link_to "戻る", admin_pictures_path(@picture) %>
+      </div>
+
+      <%= render 'layouts/error_messages', messages: @picture %>
+
+      <div class="card-body">
+        <h3 class="mt-1 mb-3">お知らせ編集</h3>
+        <%= form_with model: @picture, url: admin_picture_path(@picture), local:true do |f| %>
+
+        <!--<div class="form-group">-->
+        <!--  <!%= f.label :picture_image, "お知らせ写真(上書きします)", :class => "form-label" %>-->
+        <!--  <!%= f.attachment_field :picture_image, autocomplete: "picture_image" %>-->
+        <!--  <!%= attachment_image_tag @picture, :picture_image, :fill, 200, 200 %>-->
+        <!--</div>-->
+
+        <div class="form-group">
+          <%= f.label :title, "お知らせタイトル", :class => "form-label" %>
+          <%= f.text_field :title, autocomplete: "title", :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, "お知らせ本文", :class => "form-label" %>
+          <%= f.text_area :message, autocomplete: "message", :class => "form-control", :style => "height: 200px;" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
