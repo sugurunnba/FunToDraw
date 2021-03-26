@@ -58,7 +58,7 @@
             <tr>
               <th>
               <td>
-                <%= link_to question_answer_path(answer) do %>
+                <%= link_to question_answer_path(answer.question, answer) do %>
                   <%= answer.message %>
                 <% end %>
                 <% if @question.user = current_user %>

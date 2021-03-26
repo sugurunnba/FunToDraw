@@ -1,2 +1,48 @@
-<h1>Admin::Pictures#show</h1>
-<p>Find me in app/views/admin/pictures/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table border="1">
+        <thead>
+          <tr>
+            <i class="fa fa-history"></i><%= link_to "戻る", admin_pictures_path %>
+          </tr>
+          <tr>
+            <h5 class="message-center" style="color: limegreen"><%= flash[:notice] %></h5>
+          </tr>
+          <tr>
+            <th>投稿者</th>
+            <td><%= @picture.user.name %></td>
+          </tr>
+          <tr>
+            <th>お知らせタイトル</th>
+            <td><%= @picture.title %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>イラスト写真</th>
+            <td>
+            <% if @picture.picture_images.present? %>
+              <% @picture.picture_images.each do |picture| %>
+                <%= attachment_image_tag picture, :picture_image, :fill, 200, 200 %>
+              <% end %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "200x200" %>
+            <% end %>
+            </td>
+          <tr>
+            <th>お知らせ本文</th>
+            <td><%= simple_format(@picture.message) %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= link_to "編集する", edit_admin_picture_path(@picture), :class => "btn btn-primary" %>
+              <%= link_to "削除する", admin_picture_path(@picture), method: :delete, :class => "btn btn-primary" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
